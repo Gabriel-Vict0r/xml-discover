@@ -17,7 +17,10 @@ const config: Config = {
         'background': '#1E2129',
         'primary': '#3288FF',
         'borders': 'rgba(255, 255, 255, 0.29)',
-        'text': 'rgba(255, 255, 255, 0.63)'
+        'text': 'rgba(255, 255, 255, 0.63)',
+        'icon-add': 'rgba(50, 136, 255, 0.47)',
+        'bg-footer': '#1C1F26',
+        'stroke-footer': 'rgba(255, 255, 255, 0.08)'
       }
     },
   },
