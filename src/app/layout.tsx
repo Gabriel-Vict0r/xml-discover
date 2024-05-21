@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
+import { XmlProvider } from "@/context/XmlContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +22,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${inter.className} bg-background text-white`}>
-        {children}
+        <Suspense fallback={<Loading />}>
+          <Header />
+          <XmlProvider>{children}</XmlProvider>
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );
