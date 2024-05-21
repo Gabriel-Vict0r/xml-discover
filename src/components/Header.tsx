@@ -7,11 +7,11 @@ type Props = {};
 const Header = (props: Props) => {
   const routes = {
     home: "/",
-    analise: "/Analise",
-    relatorio: "/Relatorio",
-    diferenca: "/Diferenca",
-    login: "/Login",
-    signup: "/SignUp",
+    analise: "/analise",
+    relatorio: "/aelatorio",
+    diferenca: "/diferenca",
+    login: "/login",
+    signup: "/signUp",
   };
   return (
     <header className="w-100 px-32 py-5">

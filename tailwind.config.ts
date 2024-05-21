@@ -13,10 +13,13 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      colors: { 
+      colors: {
         'background': '#1E2129',
         'primary': '#3288FF',
         'borders': 'rgba(255, 255, 255, 0.29)',
+        'bg-container': 'rgba(255, 255, 255, 0.04)',
+        'stroke-container': 'rgba(255, 255, 255, 0.08)',
+        'stroke-cell': 'rgba(255, 255, 255, 0.10)',
         'text': 'rgba(255, 255, 255, 0.63)',
         'icon-add': 'rgba(50, 136, 255, 0.47)',
         'bg-footer': '#1C1F26',

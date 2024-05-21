@@ -1,4 +1,5 @@
 "use client";
+import ContainerNotes from "@/components/ContainerNotes";
 import Main from "@/components/Main";
 import Title from "@/components/Title";
 import { useXmlContext } from "@/context/XmlContext";
@@ -12,7 +13,12 @@ const Analise = (props: any) => {
   return (
     <Main>
       <Title title="Análise dos XMLs" />
-      {analise && analise.map((element) => <p>{element.key}</p>)}
+      <section className="w-full px-32 pt-10">
+        <div className="w-3/4">
+          <ContainerNotes title="Notas Canceladas" />
+        </div>
+        <div></div>
+      </section>
     </Main>
   );
 };
