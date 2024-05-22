@@ -1,21 +1,32 @@
 "use client";
 import { createContext, ReactNode, useContext, useState } from "react";
 
+export interface INote {
+  noteNumber: string;
+  value: number;
+  client?: string;
+}
+interface ObjNote {
+  canceled?: Array<INote>;
+  total?: number;
+  withoutProt?: Array<INote>;
+  wrongDate?: Array<INote>;
+}
 interface IXml {
-  analise: Array<Object>;
-  setAnalise: React.Dispatch<React.SetStateAction<never[]>>;
+  analise: ObjNote;
+  setAnalise: React.Dispatch<React.SetStateAction<ObjNote>>;
 }
 
 interface IXmlProvider {
   children: ReactNode;
 }
 const XmlContext = createContext<IXml>({
-  analise: [],
-  setAnalise: () => [],
+  analise: {},
+  setAnalise: () => {},
 });
 
 const XmlProvider = ({ children }: IXmlProvider) => {
-  const [analise, setAnalise] = useState([]);
+  const [analise, setAnalise] = useState({});
   return (
     <XmlContext.Provider
       value={{
