@@ -6,12 +6,17 @@ import React, { useEffect, useState } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import Main from "./Main";
 import Title from "./Title";
-
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
+import { Combobox } from "./MonthInput";
 type Props = {};
 
 const Content = (props: Props) => {
   const { setAnalise } = useXmlContext();
+  const [load, setLoad] = useState<boolean>(false);
+  const MySwal = withReactContent(Swal);
   const router = useRouter();
+
   const formik = useFormik({
     initialValues: {
       files: [],
@@ -28,6 +33,11 @@ const Content = (props: Props) => {
         body: formData,
         method: "POST",
       };
+      MySwal.fire({
+        title: "Processando os xmls...",
+        didOpen: () => MySwal.showLoading(),
+        allowOutsideClick: false,
+      });
       fetch(`${process.env.URL_API!}/xml`, requestOptions)
         .then((element) => {
           // const arrAnalise = (element.json() as unknown) as never[];
@@ -36,8 +46,13 @@ const Content = (props: Props) => {
           return element.json();
         })
         .then((element) => setAnalise(element))
-        .then(() => router.push("/analise"))
+        .then(() => {
+          MySwal.close();
+          setLoad(false);
+          router.push("/analise");
+        })
         .catch((err) => {
+          setLoad(false);
           throw new Error(err);
         });
     },
@@ -60,6 +75,7 @@ const Content = (props: Props) => {
         method="POST"
       >
         <div className="w-[358px] flex flex-col items-center gap-3">
+          <Combobox />
           <label
             htmlFor="xml"
             className="border border-dashed border-borders w-full py-5 rounded-xl text-center cursor-pointer hover:border-white text-icon-add hover:text-primary ease-in-out "

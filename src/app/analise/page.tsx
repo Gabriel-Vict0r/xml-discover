@@ -8,7 +8,7 @@ import React from "react";
 
 type Props = {};
 
-const Analise = (props: any) => {
+const Analise = () => {
   const { analise } = useXmlContext();
   console.log(analise);
   const result = Intl.NumberFormat("pt-BR", {
@@ -37,13 +37,21 @@ const Analise = (props: any) => {
                 arrNotes={analise.withoutProt}
               />
             ) : (
+                <ContainerNotes
+                  title="Sem notas com protocolo ausente"
+                  hasContent={false}
+                />
+              ) && analise.wrongDate!.length > 0 ? (
               <ContainerNotes
-                title="Sem notas com protocolo ausente"
+                title="Notas fora do período"
+                arrNotes={analise.wrongDate}
+              />
+            ) : (
+              <ContainerNotes
+                title="Sem notas fora do período"
                 hasContent={false}
               />
-                ) && analise.wrongDate!.length > 0 ? (
-                    <ContainerNotes title="Notas fora do período" arrNotes={analise.wrongDate}/>
-                ) : (<ContainerNotes title="Sem notas fora do período" hasContent={false} />)
+            )
           ) : null}
         </div>
         <div className="w-1/5">

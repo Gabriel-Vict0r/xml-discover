@@ -19,6 +19,7 @@ const config: Config = {
         'borders': 'rgba(255, 255, 255, 0.29)',
         'bg-container': 'rgba(255, 255, 255, 0.04)',
         'stroke-container': 'rgba(255, 255, 255, 0.08)',
+        'bg-input': '#272A32',
         'stroke-cell': 'rgba(255, 255, 255, 0.10)',
         'text': 'rgba(255, 255, 255, 0.63)',
         'icon-add': 'rgba(50, 136, 255, 0.47)',
